@@ -92,13 +92,13 @@ const LandingPage = () => {
                     isOpen={openAuthModal}
                     onClose={() => {
                         setOpenAuthModel(false);
-                        setCurrentPage("login");
+                        setCurrentPage("Login");
                     }}
                     hideheader
                 >
                     <div>
-                        {currentPage ==="login" && <Login setCurrentPage={setCurrentPage} />}
-                        {currentPage === "signup" && (
+                        {currentPage ==="Login" && <Login setCurrentPage={setCurrentPage} />}
+                        {currentPage === "Signup" && (
                             <Signup setCurrentPage={setCurrentPage} />
                         )}
                     </div>
