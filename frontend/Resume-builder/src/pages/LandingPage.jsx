@@ -95,6 +95,7 @@ const LandingPage = () => {
                         setCurrentPage("Login");
                     }}
                     hideheader
+                    
                 >
                     <div>
                         {currentPage ==="Login" && <Login setCurrentPage={setCurrentPage} />}

@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import Input from "../../components/inputs/Input"
 
 const Login = ({setCurrentPage}) => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [error,setError] = useState(null);
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -59,7 +61,7 @@ const Login = ({setCurrentPage}) => {
                     LOGIN
                 </button>
                 
-                <p className='text-[13px] text-slate-800 mt-3'>
+                <p className='text-[13px] text-slate-800 t-3'>
                     Don't have an account?{""}
                     <button 
                         className='font-medium text-primary underline cursor-pointer'
