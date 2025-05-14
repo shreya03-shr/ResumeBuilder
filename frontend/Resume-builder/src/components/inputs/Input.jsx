@@ -9,32 +9,22 @@ const Input = ({ value, onChange, label, placeholder, type }) => {
   };
 
   return (
-    <div>
-      <label className="text-[13px] text-slate-800">{label}</label>
-
-      <div className="input-box">
-        <Input
+    <div className="mb-4 relative">
+      <label className="text-[13px] text-slate-800 block mb-1">{label}</label>
+      <div className="relative">
+        <input
           type={type === "password" ? (showPassword ? "text" : "password") : type}
           placeholder={placeholder}
-          className="w-full bg-transparent outline-none"
+          className="w-full px-3 py-2 border rounded-md outline-none"
           value={value}
-          onChange={(e) => onChange(e)}
+          onChange={onChange}
         />
-
         {type === "password" && (
-          <div className="absolute right-2 top-1/2 -translate-y-1/2">
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer">
             {showPassword ? (
-              <FaRegEye
-                size={22}
-                className="text-primary cursor-pointer"
-                onClick={() => toggleShowPassword}
-              />
+              <FaRegEye size={20} onClick={toggleShowPassword} />
             ) : (
-              <FaRegEyeSlash
-                size={22}
-                className="text-slate-400 cursor-pointer"
-                onClick={() => toggleShowPassword}
-              />
+              <FaRegEyeSlash size={20} onClick={toggleShowPassword} />
             )}
           </div>
         )}
