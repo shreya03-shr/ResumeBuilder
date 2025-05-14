@@ -8,9 +8,6 @@ const path = require("path");
 const app = express();
 const authRoutes = require('./routes/authRoutes')
 
-// Connect to MongoDB
-connectDB();
-
 // Middleware
 app.use(
   cors({
@@ -20,13 +17,14 @@ app.use(
   })
 );
 
+// Connect to MongoDB
 connectDB();
 
 app.use(express.json());
 
 //routes
 app.use("/api/auth", authRoutes);
-//app.use("/api/resume", resumeRoutes);
+app.use("/api/resume", resumeRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
