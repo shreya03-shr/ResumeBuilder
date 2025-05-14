@@ -7,7 +7,7 @@ import Signup from "./Auth/Signup";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [openAuthModal, setOpenAuthModal] = useState(true);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("Login");
 
   const handleCTA = () => {
