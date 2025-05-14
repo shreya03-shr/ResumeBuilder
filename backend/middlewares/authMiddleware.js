@@ -1,13 +1,26 @@
-const mongoose = require("mongoose");
+// backend/middlewares/authMiddleware.js
+const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
-const UserSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    profileImageUrl: { type: String, default: null },
-  },
-  { timestamps: true }
-);
+// Middleware to protect routes
+const protect = async (req, res, next) => {
+  try {
+    let token = req.headers.authorization;
 
-module.exports = mongoose.model("User", UserSchema);
+    if (token && token.startsWith("Bearer ")) {
+      token = token.split(" ")[1]; // Extract the token
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+      req.user = await User.findById(decoded.id).select("-password");
+      next();
+    } else {
+      return res.status(401).json({ message: "Not authorized, no token" });
+    }
+  } catch (error) {
+    return res
+      .status(401)
+      .json({ message: "Token failed", error: error.message });
+  }
+};
+
+module.exports = { protect };

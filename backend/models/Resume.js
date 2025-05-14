@@ -79,8 +79,7 @@ const ResumeSchema = new mongoose.Schema({
   interests: [String],
   },
   {
-    timestamps: 
-    {createdAt:"createdAt", updatedAt: "updatedAt"},
+    timestamps: {createdAt:"createdAt", updatedAt: "updatedAt"},
   }
 );
 
