@@ -4,14 +4,22 @@ import Resume1_template from "../assets/Resume_img.png";
 import Modal from "../components/Modal";
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
+import { UserContext } from "../context/userContext";
+import { useContext } from "react";
 
 const LandingPage = () => {
+  const { Updateuser } = useContext(UserContext); 
   const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("Login");
 
   const handleCTA = () => {
-    navigate("/builder");
+    if(!user){
+      setOpenAuthModal(true);
+    }
+    else{
+      navigate("/builder");
+    }
   };
 
   return (

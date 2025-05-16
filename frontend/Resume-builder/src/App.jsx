@@ -6,33 +6,34 @@ import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Dashboard from './pages/Home/Dashboard';
 import EditResume from './pages/ResumeUpdate/EditResume';
+import UserProvider from './context/userContext';
 
 const App = () => {
     return (
-        <>
-        <div>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    {/*<Route path="/login" element={<Login />} />
+        <UserProvider>
+            <div>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<LandingPage />} />
+                        {/*<Route path="/login" element={<Login />} />
                     <Route path="/signUp" element={<Signup />} />*/}
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/resume/:resumeId" element={<EditResume/>} />
-                </Routes>
-            </Router>
-        </div>
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/resume/:resumeId" element={<EditResume />} />
+                    </Routes>
+                </Router>
+            </div>
 
-        <Toaster
-        toastOptions={
-            {
-                className:"",
-                style:{
-                    fontSize:"13px",
-                },            
-            }
-        }
-        />
-        </>
+            <Toaster
+                toastOptions={
+                    {
+                        className: "",
+                        style: {
+                            fontSize: "13px",
+                        },
+                    }
+                }
+            />
+        </UserProvider>
     );
 };
 

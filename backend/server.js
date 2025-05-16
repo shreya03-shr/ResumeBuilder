@@ -24,7 +24,7 @@ app.use(express.json());
 
 //routes
 app.use("/api/auth", authRoutes);
-app.use("/api/resume", resumeRoutes);
+//app.use("/api/resume", resumeRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
